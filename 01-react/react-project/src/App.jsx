@@ -1,5 +1,6 @@
 import "./App.css";
 import chef from "./images/chef.jpg";
+import { useState } from "react";
 
 function Header({ name, year }) {
   return (
@@ -20,10 +21,11 @@ const dishObjects = items.map((item, i) => ({
   id: i,
   title: item,
 }));
-function Main({ dishes }) {
+function Main({ dishes, currentStatus, onStatus }) {
   return (
     <>
-      <h2>Welcome to this beautiful restaurant</h2>
+      <h2>Welcome to this beautiful restaurant!! {currentStatus? "Open": "Closed"}</h2>
+      <button  style={{ border: "2px solid black" }} onClick={()=> onStatus(true)}>I want to be open</button>
       <main>
         <img src={chef} height={200} alt="An image of Eve the chef" />
         <ul>
@@ -38,10 +40,18 @@ function Main({ dishes }) {
   );
 }
 function App() {
+  const [status, setStatus] = useState(true);
   return (
     <>
+      <h2>The restaurent is currently {status ? "open" : "closed"}.</h2>
+      <button
+        style={{ border: "2px solid black" }}
+        onClick={() => setStatus(!status)}
+      >
+        {status ? "Close" : "Open"} restaurant
+      </button>
       <Header name="Veg & Non-Veg" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} />
+      <Main dishes={dishObjects} currentStatus={status} onStatus={setStatus}/>
     </>
   );
 }

@@ -1,0 +1,51 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:0;
+  background-color: aliceblue;
+  min-height: 100vh;
+  justify-content: space-evenly;
+  
+}
+.container{
+  background-color: white;
+  border-radius: 12px;       /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;        /* Centers text/buttons inside the box */
+  min-width: 250px; 
+}
+div{
+  padding: 12px;
+}
+.counter
+{
+  color: blue;
+  font-size: 50px;
+}
+.btn{
+  border-radius:20%;
+  border: 2px solid grey;
+  cursor: pointer;
+}
+.incBtn
+{
+    background-color: rgb(197, 103, 148);
+    margin-right: 5px;
+}
+.incBtn:hover
+{
+   background-color: rgb(140, 222, 177);
+}
+
+.decBtn{
+background-color: lightcoral;
+}
+.blockItem{
+  display:block;
+}
+
+.decBtn:hover
+{
+   background-color: rgb(140, 222, 177);
+}
